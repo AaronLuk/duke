@@ -27,6 +27,14 @@ public class Duke {
                 System.out.println(line);
                 manager.readList();
                 System.out.println(line);
+            } else if(input.contains("done")){
+
+                int no = Character.getNumericValue(input.charAt(5));
+                manager.setDone(no);
+                System.out.println(line);
+                System.out.println("\t Nice! I've marked this task as done:");
+                System.out.println("\t   [✓] " + manager.getTask(no));
+                System.out.println(line);
             } else {
                 manager.readInput(input);
                 System.out.println(line);
