@@ -35,6 +35,12 @@ public class Duke {
                 System.out.println("\t Nice! I've marked this task as done:");
                 System.out.println("\t   " + manager.getTask(no));
                 System.out.println(line);
+            } else if(input.contains("delete")){
+                int no = Character.getNumericValue(input.charAt(6));
+                System.out.println(line);
+                System.out.println("\t Noted, I've removed this task:");
+                manager.delete(no);
+                System.out.println(line);
             } else {
                 System.out.println(line);
                 manager.readInput(input);

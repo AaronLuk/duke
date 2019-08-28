@@ -20,20 +20,32 @@ public class InputManager {
     }
     //processes task and finds the type  and time
     public void readInput(String input){
-        int firstSpace = input.indexOf(' ');
-        type = input.substring(0,firstSpace);
-        if(type.equals("todo")){
-            task = input.substring(firstSpace+1);
-            addInput(type, task);
-            acknowledge();
+        int firstSpace;
+        try{
+            firstSpace = input.indexOf(' ');
+            type = input.substring(0,firstSpace);
+            if(type.equals("todo")){
 
-        } else {
-            int timeStamp = input.indexOf("/");
-            time = input.substring(timeStamp + 1);
-            task = input.substring(firstSpace + 1, timeStamp - 1);
-            addInput(type, task, time);
-            acknowledge();
+                task = input.substring(firstSpace+1);
+                if(!task.equals("")) {
+                    addInput(type, task);
+                    acknowledge();
+                } else {
+                    System.out.println("OOPS DESCRIPTION OF TODO CANNOT BE EMPTY.");
+                }
+
+            } else  if (type.equals("deadline")||type.equals("event")) {
+                int timeStamp = input.indexOf("/");
+                time = input.substring(timeStamp + 1);
+                task = input.substring(firstSpace + 1, timeStamp - 1);
+                addInput(type, task, time);
+                acknowledge();
+            }
+        } catch (StringIndexOutOfBoundsException e){
+            System.out.println("\t OOPS DONT KNOW WHAT THAT MEANS");
         }
+
+
     }
 
     //lists all the tasks in the memo list
@@ -56,6 +68,16 @@ public class InputManager {
     }
     //fetches task from memolist
     public String fetch(){
-        return "\t " + newList.getLatest();
+        return "\t  " + newList.getLatest();
+    }
+    //handles case for unknown memo type
+    private void handleUnknownType(){
+        System.out.println("OOPS!!! I'm sorry, but I dont't know what that means :-(");
+    }
+    //deletes memo from list
+    public void delete(int taskNo){
+        System.out.println(newList.getTask(taskNo-1).toString());
+        newList.deleteMemo(taskNo);
+        System.out.println("Now you have " + newList.getLength() + " in the list");
     }
 }

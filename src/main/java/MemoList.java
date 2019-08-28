@@ -47,4 +47,12 @@ public class MemoList {
     public String getLatest(){
         return memos.get(memos.size()-1).toString();
     }
+    //deletes the task from list
+    public void deleteMemo(int no){
+        if(memos.size()>0) {
+            memos.remove(no - 1);
+        } else {
+            System.out.println("Memo list is already empty");
+        }
+    }
 }
