@@ -36,7 +36,7 @@ public class Duke {
                 System.out.println("\t   " + manager.getTask(no));
                 System.out.println(line);
             } else if(input.contains("delete")){
-                int no = Character.getNumericValue(input.charAt(6));
+                int no = Character.getNumericValue(input.charAt(7));
                 System.out.println(line);
                 System.out.println("\t Noted, I've removed this task:");
                 manager.delete(no);

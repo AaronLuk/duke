@@ -76,8 +76,8 @@ public class InputManager {
     }
     //deletes memo from list
     public void delete(int taskNo){
-        System.out.println(newList.getTask(taskNo-1).toString());
+        System.out.println("\t   " + newList.getTask(taskNo));
         newList.deleteMemo(taskNo);
-        System.out.println("Now you have " + newList.getLength() + " in the list");
+        System.out.println("\t Now you have " + newList.getLength() + " in the list");
     }
 }
