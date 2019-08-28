@@ -6,19 +6,25 @@ public class MemoList {
     public MemoList(){
         memos = new ArrayList<>();
     }
-    public void add(String memo){
-        memos.add(new Item(memo));
+    public void add(String type, String memo) {
+        memos.add(new ToDos(memo));
+    }
+    public void add(String type, String memo, String time){
+
+        if(type.equals("event")){
+            memos.add(new Events(memo, time));
+        } else {
+            memos.add(new Deadlines(memo, time));
+        }
     }
     public String toString(){
         int counter = 1;
         String list = "";
-        String Done = "[✓]";
-        String notDone = "[✗]";
         for(Item task : memos){
             if(task.isDone()){
-                list += "\t " +counter + "."+ Done + " " + task.toString() + "\n";
+                list += "\t " +counter + "."+ task.toString() + "\n";
             } else {
-                list += "\t " +counter + "."+ notDone + " " + task.toString() + "\n";
+                list += "\t " +counter + "."+ task.toString() + "\n";
             }
             counter++;
         }
@@ -32,5 +38,13 @@ public class MemoList {
     //returns name of the task
     public String getTask(int no){
         return memos.get(no-1).toString();
+    }
+    //returns length of memo list
+    public int getLength(){
+        return this.memos.size();
+    }
+    //returns latest added memo
+    public String getLatest(){
+        return memos.get(memos.size()-1).toString();
     }
 }

@@ -33,12 +33,12 @@ public class Duke {
                 manager.setDone(no);
                 System.out.println(line);
                 System.out.println("\t Nice! I've marked this task as done:");
-                System.out.println("\t   [✓] " + manager.getTask(no));
+                System.out.println("\t   " + manager.getTask(no));
                 System.out.println(line);
             } else {
-                manager.readInput(input);
                 System.out.println(line);
-                System.out.println("\t " + input);
+                manager.readInput(input);
+
                 System.out.println(line);
             }
         }

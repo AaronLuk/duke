@@ -1,7 +1,7 @@
-public class Item {
+public abstract class Item {
 
-    String name;
-    boolean done;
+    protected String name;
+    protected boolean done;
 
     public Item(String name){
         this.name = name;
