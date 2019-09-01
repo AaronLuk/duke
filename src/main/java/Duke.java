@@ -1,14 +1,18 @@
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Duke {
     InputManager manager;
+    TaskList tasks;
+    Storage storage;
     boolean exit;
     Scanner sc;
     String line;
-    TaskList tasks;
 
-    public Duke(){
-        tasks = new TaskList();
+
+    public Duke(String FilePath) throws FileNotFoundException {
+        storage = new Storage(FilePath);
+        tasks = new TaskList(storage.load());
         manager = new InputManager(tasks);
         exit = false;
         sc = new Scanner(System.in);
@@ -20,6 +24,7 @@ public class Duke {
 
     }
     public void run(){
+            System.out.println(tasks);
 //        String logo = " ____        _        \n"
 //                + "|  _ \\ _   _| | _____ \n"
 //                + "| | | | | | | |/ / _ \\\n"
@@ -62,7 +67,8 @@ public class Duke {
 
     }
 
-    public static void main(String[] args){
-        new Duke().run();
+    public static void main(String[] args) throws FileNotFoundException {
+
+        new Duke("duke.txt").run();
     }
 }
