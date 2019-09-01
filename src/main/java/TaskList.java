@@ -3,8 +3,8 @@ import java.util.ArrayList;
 public class TaskList {
     private ArrayList<Task> tasks;
 
-    public TaskList(){
-        tasks = new ArrayList<>();
+    public TaskList(ArrayList<Task> list){
+        tasks = list;
     }
     public void add(String type, String memo) {
         tasks.add(new ToDos(memo));

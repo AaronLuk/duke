@@ -1,14 +1,18 @@
+import java.io.*;
 import java.util.Scanner;
 
 public class Duke {
     InputManager manager;
+    TaskList tasks;
+    Storage storage;
     boolean exit;
     Scanner sc;
     String line;
-    TaskList tasks;
 
-    public Duke(){
-        tasks = new TaskList();
+
+    public Duke(String FilePath) throws IOException {
+        storage = new Storage(FilePath);
+        tasks = new TaskList(storage.load());
         manager = new InputManager(tasks);
         exit = false;
         sc = new Scanner(System.in);
@@ -18,7 +22,8 @@ public class Duke {
         System.out.println("What can I do for you?");
 
 
-    }
+}
+
     public void run(){
 //        String logo = " ____        _        \n"
 //                + "|  _ \\ _   _| | _____ \n"
@@ -62,7 +67,7 @@ public class Duke {
 
     }
 
-    public static void main(String[] args){
-        new Duke().run();
+    public static void main(String[] args) throws IOException {
+        new Duke("src/main/java/data.txt").run();
     }
 }
