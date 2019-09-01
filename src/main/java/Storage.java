@@ -3,6 +3,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.text.SimpleDateFormat;
+import java.io.FileInputStream;
 
 public class Storage{
     private String filePath;
@@ -24,7 +25,6 @@ public class Storage{
             switch (text[0]){
                 case "T":
                     t = new ToDos(text[2]);
-                    System.out.println("todo");
                     break;
                 case "D":
                     t = new Deadlines(text[2], text[3]);
