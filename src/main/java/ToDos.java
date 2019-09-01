@@ -1,4 +1,4 @@
-public class ToDos extends Item {
+public class ToDos extends Task {
     private String todo;
 
     public ToDos(String name){

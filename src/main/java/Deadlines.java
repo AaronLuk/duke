@@ -1,4 +1,4 @@
-public class Deadlines extends Item{
+public class Deadlines extends Task{
 
     private String deadline;
     private String time;

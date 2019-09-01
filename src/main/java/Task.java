@@ -1,9 +1,9 @@
-public abstract class Item {
+public abstract class Task {
 
     protected String name;
     protected boolean done;
 
-    public Item(String name){
+    public Task(String name){
         this.name = name;
         done = false;
     }
