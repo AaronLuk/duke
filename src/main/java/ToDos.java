@@ -14,4 +14,11 @@ public class ToDos extends Task {
         }
     }
 
+    public String toFile(){
+        if(done){
+            return "T | 1 | " + name;
+        } else {
+            return "T | 0 | " + name;
+        }
+    }
 }

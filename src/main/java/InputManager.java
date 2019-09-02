@@ -37,7 +37,7 @@ public class InputManager {
 
                 } else if (type.equals("deadline") || type.equals("event")) {
                         int timeStamp = input.indexOf("/");
-                        time = input.substring(timeStamp + 1);
+                        time = input.substring(timeStamp + 4);
                         task = input.substring(firstSpace + 1, timeStamp - 1);
                         addInput(type, task, time);
                         acknowledge();

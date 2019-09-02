@@ -1,3 +1,5 @@
+import java.text.ParseException;
+
 public class Task {
 
     protected String name;
@@ -18,6 +20,9 @@ public class Task {
     //returns state of task i.e completed or not
     public boolean isDone(){
         return done;
+    }
+    public String toFile() throws ParseException {
+        return "";
     }
 
 }

@@ -1,4 +1,5 @@
 import java.io.*;
+import java.text.ParseException;
 import java.util.Scanner;
 
 public class Duke {
@@ -24,7 +25,7 @@ public class Duke {
 
 }
 
-    public void run(){
+    public void run() throws IOException, ParseException {
 //        String logo = " ____        _        \n"
 //                + "|  _ \\ _   _| | _____ \n"
 //                + "| | | | | | | |/ / _ \\\n"
@@ -39,6 +40,7 @@ public class Duke {
                 System.out.println(line);
                 System.out.println("\t Bye. Hope to see you soon!");
                 System.out.println(line);
+                storage.save(TaskList.getTasks());
                 exit = true;
             } else if(input.equals("list")){
                 System.out.println(line);
@@ -67,7 +69,7 @@ public class Duke {
 
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ParseException {
         new Duke("src/main/java/data.txt").run();
     }
 }

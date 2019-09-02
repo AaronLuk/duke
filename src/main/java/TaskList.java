@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 
 public class TaskList {
-    private ArrayList<Task> tasks;
+    private static ArrayList<Task> tasks;
+
 
     public TaskList(ArrayList<Task> list){
         tasks = list;
@@ -54,5 +55,9 @@ public class TaskList {
         } else {
             System.out.println("Memo list is already empty");
         }
+    }
+    //returns entire list of tasks
+    public static ArrayList<Task> getTasks(){
+        return tasks;
     }
 }

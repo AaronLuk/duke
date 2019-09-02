@@ -1,9 +1,11 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.text.SimpleDateFormat;
-import java.io.FileInputStream;
+import java.io.FileWriter;
 
 public class Storage{
     private String filePath;
@@ -42,6 +44,14 @@ public class Storage{
             tasks.add(t);
         }
         return tasks;
+    }
+
+    public void save(ArrayList<Task> tasks) throws IOException, ParseException {
+        FileWriter writer = new FileWriter("src/main/java/data.txt");
+        for(Task t: tasks){
+            writer.write(t.toFile() + System.lineSeparator());
+        }
+        writer.close();
     }
 
 
