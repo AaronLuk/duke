@@ -7,17 +7,13 @@ public class TaskList {
     public TaskList(ArrayList<Task> list){
         tasks = list;
     }
-    public void add(String type, String memo) {
-        tasks.add(new ToDos(memo));
-    }
-    public void add(String type, String memo, String time){
 
-        if(type.equals("event")){
-            tasks.add(new Events(memo, time));
-        } else {
-            tasks.add(new Deadlines(memo, time));
-        }
+    public void add(Task t){
+        tasks.add(t);
     }
+
+
+
     public String toString(){
         int counter = 1;
         String list = "";
@@ -49,11 +45,11 @@ public class TaskList {
         return tasks.get(tasks.size()-1).toString();
     }
     //deletes the task from list
-    public void deleteMemo(int no){
+    public void deleteTask(int no){
         if(tasks.size()>0) {
             tasks.remove(no - 1);
         } else {
-            System.out.println("Memo list is already empty");
+            System.out.println("Task list is already empty");
         }
     }
     //returns entire list of tasks
