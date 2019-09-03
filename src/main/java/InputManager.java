@@ -50,6 +50,12 @@ public class InputManager {
                     String[] details = words[1].split(" /by ");
                     return new AddCommand(new Deadlines(details[0].trim(), details[1].trim()));
                 }
+            case "find":
+                if(words.length < 2){
+                    System.out.println("OOPS DESCRIPTION OF FIND CANT BE EMPTY");
+                } else {
+                    return new FindCommand(words[1]);
+                }
             default:
                 System.out.println("OOPS DONT KNOW WHAT THAT MEANS");
                 return new ListCommand();
