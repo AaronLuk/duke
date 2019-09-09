@@ -3,7 +3,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
-public class Deadlines extends Task{
+public class Deadlines extends Task {
 
     private String deadline;
     private String time;
