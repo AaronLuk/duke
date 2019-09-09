@@ -1,4 +1,7 @@
-import java.io.*;
+package Duke;
+
+
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.Scanner;
 import Duke.Storage;
@@ -11,7 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-public class Duke extends Application{
+public class Duke {
 
     InputManager manager;
     TaskList tasks;
@@ -20,14 +23,7 @@ public class Duke extends Application{
     Scanner sc;
     String line;
 
-    @Override
-    public void start(Stage stage){
-        Label helloWorld = new Label("Hello World");
-        Scene scene = new Scene(helloWorld);
 
-        stage.setScene(scene);
-        stage.show();
-    }
 
     public Duke(String FilePath) throws IOException {
         storage = new Storage(FilePath);
