@@ -1,3 +1,10 @@
+package Duke;
+
+import Command.*;
+import Task.Deadlines;
+import Task.Events;
+import Task.ToDos;
+
 public class InputManager {
 
     private String input;

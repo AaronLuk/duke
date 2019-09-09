@@ -1,3 +1,5 @@
+package Duke;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -6,6 +8,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.text.SimpleDateFormat;
 import java.io.FileWriter;
+
+import Task.Task;
+import Task.ToDos;
+import Task.Deadlines;
+import Task.Events;
+
 
 public class Storage{
     private String filePath;

@@ -1,8 +1,11 @@
 import java.io.*;
 import java.text.ParseException;
 import java.util.Scanner;
+import Duke.Storage;
+import Duke.InputManager;
 
-
+import Command.Command;
+import Task.TaskList;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -60,7 +63,7 @@ public class Duke extends Application{
 //                System.out.println(line);
 //                System.out.println("\t Bye. Hope to see you soon!");
 //                System.out.println(line);
-//                storage.save(TaskList.getTasks());
+//                storage.save(Task.TaskList.getTasks());
 //                exit = true;
 //            } else if(input.equals("list")){
 //                System.out.println(line);
