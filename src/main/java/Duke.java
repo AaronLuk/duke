@@ -2,7 +2,14 @@ import java.io.*;
 import java.text.ParseException;
 import java.util.Scanner;
 
-public class Duke {
+
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.stage.Stage;
+
+public class Duke extends Application{
+
     InputManager manager;
     TaskList tasks;
     Storage storage;
@@ -10,6 +17,14 @@ public class Duke {
     Scanner sc;
     String line;
 
+    @Override
+    public void start(Stage stage){
+        Label helloWorld = new Label("Hello World");
+        Scene scene = new Scene(helloWorld);
+
+        stage.setScene(scene);
+        stage.show();
+    }
 
     public Duke(String FilePath) throws IOException {
         storage = new Storage(FilePath);
