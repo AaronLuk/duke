@@ -15,7 +15,7 @@ public class ByeCommand extends Command {
     @Override
     public boolean isExit() {
         super.isExit = true;
-        return super.isExit();
+        return true;
     }
 }
 
