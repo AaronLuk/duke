@@ -1,3 +1,4 @@
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.Scanner;
@@ -6,12 +7,11 @@ import Duke.InputManager;
 
 import Command.Command;
 import Task.TaskList;
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.stage.Stage;
 
-public class Duke extends Application{
+import javafx.scene.control.Label;
+
+
+public class Duke {
 
     InputManager manager;
     TaskList tasks;
@@ -20,81 +20,75 @@ public class Duke extends Application{
     Scanner sc;
     String line;
 
-    @Override
-    public void start(Stage stage) {
-        Label helloWorld = new Label("Hello World!"); // Creating a new Label control
-        Scene scene = new Scene(helloWorld); // Setting the scene to be our Label
 
-        stage.setScene(scene); // Setting the stage to show our screen
-        stage.show(); // Render the stage.
+    public Duke(String filePath){
+        startup(filePath);
     }
-    public Duke(){
 
-    }
-    public Duke(String FilePath) throws IOException {
-        storage = new Storage(FilePath);
-        tasks = new TaskList(storage.load());
-        manager = new InputManager();
-        exit = false;
-        sc = new Scanner(System.in);
-        line = "\t_____________________________________________";
-        System.out.println(line);
-        System.out.println("Hello I'm Duke");
-        System.out.println("What can I do for you?");
-
-
-}
-
-    public void run() throws IOException, ParseException {
-//        String logo = " ____        _        \n"
-//                + "|  _ \\ _   _| | _____ \n"
-//                + "| | | | | | | |/ / _ \\\n"
-//                + "| |_| | |_| |   <  __/\n"
-//                + "|____/ \\__,_|_|\\_\\___|\n";
-//        System.out.println("Hello from\n" + logo);
-        while(exit == false){
-            String command = sc.nextLine();
-            Command c = InputManager.parse(command);
+    public String getResponse(String input) {
+        try{
+            exit = false;
+            Command c = InputManager.parse(input);
             c.execute(tasks, storage);
             exit = c.isExit();
+            if(exit){
+
+            } else {
+                return c.toString();
+            }
+        } catch (IOException | ParseException e){
+            return e.getMessage();
         }
 
-//        while(exit == false){
-//            String input = sc.nextLine();
-//            if(input.equals("bye")){
-//                System.out.println(line);
-//                System.out.println("\t Bye. Hope to see you soon!");
-//                System.out.println(line);
-//                storage.save(Task.TaskList.getTasks());
-//                exit = true;
-//            } else if(input.equals("list")){
-//                System.out.println(line);
-//                manager.readList();
-//                System.out.println(line);
-//            } else if(input.contains("done")){
+
+
+
+        return "";
+    }
+
 //
-//                int no = Character.getNumericValue(input.charAt(5));
-//                manager.setDone(no);
-//                System.out.println(line);
-//                System.out.println("\t Nice! I've marked this task as done:");
-//                System.out.println("\t   " + manager.getTask(no));
-//                System.out.println(line);
-//            } else if(input.contains("delete")){
-//                int no = Character.getNumericValue(input.charAt(7));
-//                System.out.println(line);
-//                System.out.println("\t Noted, I've removed this task:");
-//                manager.delete(no);
-//                System.out.println(line);
-//            } else {
-//                System.out.println(line);
-//                manager.readInput(input);
-//                System.out.println(line);
-//            }
+//    public Duke(String FilePath)  {
+//
+//        storage = new Storage(FilePath);
+//
+//        manager = new InputManager();
+//        try{
+//            tasks = new TaskList(storage.load());
+//        } catch(IOException e) {
+//            System.out.println(e.getMessage());
 //        }
+//        exit = false;
+//        sc = new Scanner(System.in);
+//        line = "\t_____________________________________________";
+//        System.out.println(line);
+//        System.out.println("Hello I'm Duke");
+//        System.out.println("What can I do for you?");
+//
+//
+//}
 
+//    public void run() throws IOException, ParseException {
+////        String logo = " ____        _        \n"
+////                + "|  _ \\ _   _| | _____ \n"
+////                + "| | | | | | | |/ / _ \\\n"
+////                + "| |_| | |_| |   <  __/\n"
+////                + "|____/ \\__,_|_|\\_\\___|\n";
+////        System.out.println("Hello from\n" + logo);
+//        while(exit == false){
+//            String command = sc.nextLine();
+//            Command c = InputManager.parse(command);
+//            c.execute(tasks, storage);
+//            exit = c.isExit();
+//        }
+//
+//    }
+    public void startup(String filePath){
+        storage = new Storage(filePath);
+        try{
+            tasks = new TaskList(storage.load());
+        } catch (IOException e){
+            System.out.println(e);
+        }
     }
 
-    public static void main(String[] args) throws IOException, ParseException {
-        new Duke("src/main/java/data.txt").run();
-    }
 }
