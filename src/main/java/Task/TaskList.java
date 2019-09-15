@@ -21,9 +21,9 @@ public class TaskList {
         String list = "";
         for(Task task : tasks){
             if(task.isDone()){
-                list += "\t " +counter + "."+ task.toString() + "\n";
+                list += counter + "."+ task.toString() + "\n";
             } else {
-                list += "\t " +counter + "."+ task.toString() + "\n";
+                list += counter + "."+ task.toString() + "\n";
             }
             counter++;
         }

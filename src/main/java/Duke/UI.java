@@ -1,3 +1,5 @@
+package Duke;
+
 public class UI {
 
     private String line;
@@ -14,14 +16,20 @@ public class UI {
                 + "|____/ \\__,_|_|\\_\\___|\n";
     }
 
-    public void greet(){
-        System.out.println(line);
-        System.out.println(greeting);
-        System.out.println(line);
+    public String greet(){
+        return line + "\n" + greeting + "\n" + line;
+
     }
 
     public void line(){
         System.out.println(line);
     }
 
+    public String goodBye(){
+        return "Bye see you next time";
+    }
+
+    public void  loadError(){
+        System.out.println("No data was found");
+    }
 }

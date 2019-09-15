@@ -14,10 +14,12 @@ public class DeleteCommand extends Command {
 
     @Override
     public void execute(TaskList tasks, Storage storage) throws IOException, ParseException {
-        System.out.println("\t Noted, I've removed this task:)");
+        System.out.println("\t Noted, I've removed this task:");
         System.out.println("\t   " + tasks.getTask(index));
         tasks.deleteTask(index);
         System.out.println("\t Now you have " + tasks.getLength() + " in the list");
+        taskMessage =  "Noted, I've removed this task:\n";
+        taskMessage += "  " + tasks.getTask(index) + "\n";
 
     }
 }

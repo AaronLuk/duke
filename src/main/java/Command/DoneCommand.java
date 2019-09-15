@@ -17,6 +17,7 @@ public class DoneCommand extends Command {
         tasks.setDone(index);
         System.out.println("\t Nice! I've marked this task as done:");
         System.out.println("\t   " + tasks.getTask(index));
-
+        taskMessage =  "Nice! I've marked this task as done:\n";
+        taskMessage += "   " + tasks.getTask(index);
     }
 }

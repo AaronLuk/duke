@@ -9,7 +9,7 @@ public class ByeCommand extends Command {
 
     @Override
     public void execute(TaskList tasks, Storage storage) throws IOException, ParseException {
-        storage.save(tasks.getTasks());
+
     }
 
     @Override
