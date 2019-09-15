@@ -4,6 +4,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * Event class
+ */
 public class Events extends Task {
 
     private String time;
@@ -11,6 +14,11 @@ public class Events extends Task {
     private SimpleDateFormat sdf;
     private Date date;
 
+    /**
+     * Constructs event task
+     * @param name description of event
+     * @param time time of event
+     */
     public Events(String name, String time){
         super(name);
         this.time = time.trim();
@@ -18,11 +26,20 @@ public class Events extends Task {
         sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm");
     }
 
+    /**
+     * Converts date and time of event
+     * @return  date and time
+     * @throws ParseException
+     */
     public String convertDate() throws ParseException {
         date = sdf.parse(this.time);
         return sdf.format(date);
     }
 
+    /**
+     * Details of event
+     * @return details of event
+     */
     public String toString(){
         if(done){
             return event + "[✓] " + name + " (at: " + time + ")";

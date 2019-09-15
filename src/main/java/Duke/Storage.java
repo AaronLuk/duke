@@ -14,14 +14,25 @@ import Task.ToDos;
 import Task.Deadlines;
 import Task.Events;
 
-
+/**
+ * Reads and writes information from and to file
+ */
 public class Storage{
     private String filePath;
 
+    /**
+     * Contructor for storage object
+     * @param filePath directory of the file
+     */
     public Storage(String filePath){
         this.filePath = filePath;
     }
 
+    /**
+     * Reads tasks from file
+     * @return List of tasks
+     * @throws FileNotFoundException Inform file does not exist
+     */
     public ArrayList<Task> load() throws  FileNotFoundException {
         File file = new File(filePath);
         Scanner sc = new Scanner(file);
@@ -54,6 +65,12 @@ public class Storage{
         return tasks;
     }
 
+    /**
+     * Writes modifications to the file
+     * @param tasks Takes in the list of tasks user had been making changes to
+     * @throws IOException Error writing to file
+     * @throws ParseException Error writing to file
+     */
     public void save(ArrayList<Task> tasks) throws IOException, ParseException {
         FileWriter writer = new FileWriter("src/main/java/data.txt");
         for(Task t: tasks){

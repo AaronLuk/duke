@@ -2,20 +2,33 @@ package Task;
 
 import java.util.ArrayList;
 
+/**
+ * Class with list of tasks and methods to access individual tasks
+ */
 public class TaskList {
     private static ArrayList<Task> tasks;
 
-
+    /**
+     * Creates tasklist object
+     * @param list of tasks
+     */
     public TaskList(ArrayList<Task> list){
         tasks = list;
     }
 
+    /**
+     * Adds task to list
+     * @param t task to be added
+     */
     public void add(Task t){
         tasks.add(t);
     }
 
 
-
+    /**
+     * Prints all the task in the list
+     * @return full list of tasks
+     */
     public String toString(){
         int counter = 1;
         String list = "";

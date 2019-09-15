@@ -4,8 +4,9 @@ import Duke.Storage;
 import Task.TaskList;
 import Task.Task;
 
-import java.io.IOException;
-import java.text.ParseException;
+/**
+ * Executable to find all tasks for the user
+ */
 import java.util.ArrayList;
 
 public class FindCommand extends Command {
@@ -13,11 +14,21 @@ public class FindCommand extends Command {
     String wordToFind;
     ArrayList<Task> searchResults;
 
+    /**
+     * Constructs find command class
+     * @param word to find in list of tasks
+     */
     public FindCommand(String word){
         wordToFind = word;
     }
+
+    /**
+     * Performs action to find tasks containing specified word
+     * @param tasks list of tasks
+     * @param storage loads and saves list of tasks to file
+     */
     @Override
-    public void execute(TaskList tasks, Storage storage) throws IOException, ParseException {
+    public void execute(TaskList tasks, Storage storage)  {
         taskMessage ="";
         searchResults = new ArrayList<>();
         for(Task t: tasks.getTasks()){
