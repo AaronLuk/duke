@@ -39,7 +39,7 @@ public class Duke {
         try{
             exit = false;
             Command c = InputManager.parse(input);
-            c.execute(tasks, storage);
+            c.execute(tasks, storage, ui);
             storage.save(tasks.getTasks());
             exit = c.isExit();
 

@@ -13,7 +13,7 @@ public class UI {
      * Constructor for the UI class
      */
     public UI(){
-        line = "\t_____________________________________________";
+        line = "===============================";
         greeting = "\t Hello I'm Duke\n\tWhat can I do for you?";
         logo = " ____        _        \n"
                 + "|  _ \\ _   _| | _____ \n"
@@ -34,8 +34,8 @@ public class UI {
     /**
      * A line for dividing content
      */
-    public void line(){
-        System.out.println(line);
+    public String line(){
+        return line;
     }
 
     /**

@@ -3,7 +3,7 @@ package Command;
 import Duke.Storage;
 import Task.TaskList;
 import Task.Task;
-
+import Duke.UI;
 /**
  * Executable to find all tasks for the user
  */
@@ -28,8 +28,8 @@ public class FindCommand extends Command {
      * @param storage loads and saves list of tasks to file
      */
     @Override
-    public void execute(TaskList tasks, Storage storage)  {
-        taskMessage ="";
+    public void execute(TaskList tasks, Storage storage, UI ui)  {
+        taskMessage = ui.line() + "\n";
         searchResults = new ArrayList<>();
         for(Task t: tasks.getTasks()){
             if(t.toString().contains(wordToFind)){
@@ -46,6 +46,8 @@ public class FindCommand extends Command {
                  taskMessage +=  counter + ". " + task.toString() + "\n";
                  counter++;
             }
+            taskMessage += ui.line();
         }
+
     }
 }

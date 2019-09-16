@@ -2,7 +2,7 @@ package Command;
 
 import Duke.Storage;
 import Task.TaskList;
-
+import Duke.UI;
 /**
  * Executable to list all the tasks
  */
@@ -14,8 +14,10 @@ public class ListCommand extends Command {
      * @param storage loads and saves list of tasks to file
      */
     @Override
-    public void execute(TaskList tasks, Storage storage) {
+    public void execute(TaskList tasks, Storage storage, UI ui) {
         System.out.println(tasks.toString());
-        taskMessage = tasks.toString();
+        taskMessage = ui.line() + "\n";
+        taskMessage += tasks.toString();
+        taskMessage += ui.line();
     }
 }

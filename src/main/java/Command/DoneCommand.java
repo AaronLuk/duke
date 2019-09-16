@@ -2,7 +2,7 @@ package Command;
 
 import Duke.Storage;
 import Task.TaskList;
-
+import Duke.UI;
 /**
  * Executable to mark a task as done
  */
@@ -23,11 +23,13 @@ public class DoneCommand extends Command {
      * @param storage loads and saves list of tasks to file
      */
     @Override
-    public void execute(TaskList tasks, Storage storage) {
+    public void execute(TaskList tasks, Storage storage, UI ui) {
         tasks.setDone(index);
         System.out.println("\t Nice! I've marked this task as done:");
         System.out.println("\t   " + tasks.getTask(index));
-        taskMessage =  "Nice! I've marked this task as done:\n";
+        taskMessage = ui.line() + "\n";
+        taskMessage +=  "Nice! I've marked this task as done:\n";
         taskMessage += "   " + tasks.getTask(index);
+        taskMessage += ui.line();
     }
 }

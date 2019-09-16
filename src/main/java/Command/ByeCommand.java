@@ -2,7 +2,7 @@ package Command;
 
 import Duke.Storage;
 import Task.TaskList;
-
+import Duke.UI;
 /**
  * Ends the session with user
  */
@@ -10,7 +10,7 @@ public class ByeCommand extends Command {
 
 
     @Override
-    public void execute(TaskList tasks, Storage storage) {
+    public void execute(TaskList tasks, Storage storage, UI ui) {
 
     }
 

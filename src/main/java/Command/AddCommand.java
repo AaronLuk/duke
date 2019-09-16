@@ -3,7 +3,7 @@ package Command;
 import Task.TaskList;
 import Task.Task;
 import Duke.Storage;
-
+import Duke.UI;
 
 
 /**
@@ -34,14 +34,16 @@ public class AddCommand extends Command{
      * @param tasks list of tasks
      * @param storage loads and saves the list of tasks
      */
-    public void execute(TaskList tasks, Storage storage)  {
+    public void execute(TaskList tasks, Storage storage, UI ui)  {
         tasks.add(this.task);
         System.out.println("\t Got it I've added this task:");
         System.out.println("\t " + tasks.getLatest());
         System.out.println("\t Now you have " + tasks.getLength() + " in the list");
-        taskMessage =  "Got it I've added this task:\n";
+        taskMessage = ui.line() + "\n";
+        taskMessage +=  "Got it I've added this task:\n";
         taskMessage += "   " + tasks.getLatest() + "\n";
-        taskMessage += "Now you have " + tasks.getLength() + " in the list";
+        taskMessage += "Now you have " + tasks.getLength() + " in the list\n";
+        taskMessage += ui.line();
     }
 
 }
