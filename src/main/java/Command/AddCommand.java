@@ -42,7 +42,6 @@ public class AddCommand extends Command{
         taskMessage =  "Got it I've added this task:\n";
         taskMessage += "   " + tasks.getLatest() + "\n";
         taskMessage += "Now you have " + tasks.getLength() + " in the list";
-        
     }
 
 }
