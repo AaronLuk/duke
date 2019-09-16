@@ -21,7 +21,7 @@ public class ToDos extends Task {
      */
     public String toString(){
         if(done){
-            return todo + "[✓] " + name;
+            return todo + "[√] " + name;
         } else {
             return todo + "[X] " + name;
         }

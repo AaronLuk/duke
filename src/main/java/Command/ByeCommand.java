@@ -11,7 +11,9 @@ public class ByeCommand extends Command {
 
     @Override
     public void execute(TaskList tasks, Storage storage, UI ui) {
-
+        taskMessage = ui.line() + "\n";
+        taskMessage += "Bye see you soon";
+        taskMessage += ui.line();
     }
 
     /**

@@ -29,7 +29,7 @@ public class DoneCommand extends Command {
         System.out.println("\t   " + tasks.getTask(index));
         taskMessage = ui.line() + "\n";
         taskMessage +=  "Nice! I've marked this task as done:\n";
-        taskMessage += "   " + tasks.getTask(index);
+        taskMessage += "   " + tasks.getTask(index)+"\n";
         taskMessage += ui.line();
     }
 }

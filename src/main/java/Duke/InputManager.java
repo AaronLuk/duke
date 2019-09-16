@@ -71,8 +71,7 @@ public class InputManager {
                     return new FindCommand(words[1]);
                 }
             default:
-                System.out.println("OOPS DONT KNOW WHAT THAT MEANS\nHere's your list of tasks");
-                return new ListCommand();
+                return new ErrorCommand();
         }
     }
 

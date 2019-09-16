@@ -14,7 +14,7 @@ public class UI {
      */
     public UI(){
         line = "===============================";
-        greeting = "\t Hello I'm Duke\n\tWhat can I do for you?";
+        greeting = "\t Hello I'm HackerMan\n\tWhat can I do for you?";
         logo = " ____        _        \n"
                 + "|  _ \\ _   _| | _____ \n"
                 + "| | | | | | | |/ / _ \\\n"
@@ -43,7 +43,7 @@ public class UI {
      * @return
      */
     public String goodBye(){
-        return "Your modifications have been saved. See you next time";
+        return line + "\nYour modifications have been saved. See you next time\n" + line;
     }
 
     /**

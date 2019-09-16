@@ -42,7 +42,7 @@ public class Deadlines extends Task {
      */
     public String toString(){
         if(done){
-            return deadline + "[✓] " + name + " (by: " + time + ")";
+            return deadline + "[√] " + name + " (by: " + time + ")";
         } else {
             return deadline + "[X] " + name + " (by: " + time + ")";
         }

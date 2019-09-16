@@ -10,7 +10,7 @@ public class DukeException extends Exception {
      * Constructor for DukeException
      */
     public DukeException(){
-        errorMessage = "OOP!!! DONT KNOW WHAT THAT MEANS";
+        errorMessage = "OOPS!!! DONT KNOW WHAT THAT MEANS";
     }
 
     /**
@@ -25,7 +25,7 @@ public class DukeException extends Exception {
      * Shous error made by user
      * @return returns the error message
      */
-    public String getErrorMessage(){
+    public String getMessage(){
         return errorMessage;
     }
 }

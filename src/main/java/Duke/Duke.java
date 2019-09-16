@@ -3,7 +3,7 @@ package Duke;
 
 import java.io.IOException;
 import java.text.ParseException;
-import java.util.Scanner;
+
 
 import Command.Command;
 import Task.TaskList;
@@ -14,12 +14,10 @@ import Task.TaskList;
  */
 public class Duke {
 
-    InputManager manager;
+
     TaskList tasks;
     Storage storage;
     boolean exit;
-    Scanner sc;
-    String line;
     UI ui;
 
     /**

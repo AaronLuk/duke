@@ -42,7 +42,7 @@ public class Events extends Task {
      */
     public String toString(){
         if(done){
-            return event + "[✓] " + name + " (at: " + time + ")";
+            return event + "[√] " + name + " (at: " + time + ")";
         } else {
             return event + "[X] " + name + " (at: " + time + ")";
         }
