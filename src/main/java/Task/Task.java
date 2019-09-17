@@ -9,14 +9,18 @@ public class Task {
 
     protected String name;
     protected boolean done;
+    protected int priority;
+
+
 
     /**
-     * Constructs the task
-     * @param name details of the task
+     * Constructor of task
+     * @param name of task
+     * @param priority of the task
      */
-    public Task(String name){
+    public Task(String name, int priority){
         this.name = name;
-        done = false;
+        this.priority = priority;
     }
 
     /**
@@ -26,6 +30,13 @@ public class Task {
         return name;
     }
 
+    /**
+     * Sets the priority of the task
+     * @param priority of the task
+     */
+    public void setPriority(int priority){
+        this.priority = priority;
+    }
     /**
      * sets the task to completed
      */

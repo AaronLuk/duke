@@ -14,17 +14,19 @@ public class Events extends Task {
     private SimpleDateFormat sdf;
     private Date date;
 
+
     /**
-     * Constructs event task
-     * @param name description of event
-     * @param time time of event
+     * Constructor of event task
+     * @param name of task
+     * @param priority of the task
      */
-    public Events(String name, String time){
-        super(name);
+    public Events(String name, String time, int priority){
+        super(name, priority);
         this.time = time.trim();
         event = "[E]";
         sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm");
     }
+
 
     /**
      * Converts date and time of event
@@ -42,17 +44,17 @@ public class Events extends Task {
      */
     public String toString(){
         if(done){
-            return event + "[√] " + name + " (at: " + time + ")";
+            return event + "[/][" + priority + "] " + " (at: " + time + ")";
         } else {
-            return event + "[X] " + name + " (at: " + time + ")";
+            return event + "[X][" + priority + "] " + " (at: " + time + ")";
         }
     }
 
     public String toFile() throws ParseException {
         if(done){
-            return "E | 1 | " + name + " | " +  convertDate();
+            return "E | 1 | " + priority + " | " +  name + " | " +  convertDate();
         } else {
-            return "E | 0 | " + name + " | " +  convertDate();
+            return "E | 0 | " + priority + " | " +  name + " | " +  convertDate();
         }
     }
 }

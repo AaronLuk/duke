@@ -48,21 +48,31 @@ public class InputManager {
                 if (words.length < 2) {
                     throw new DukeException(action);
                 } else {
-                    return new AddCommand(new ToDos(words[1].trim()));
+                    String[] details = words[1].split(" ");
+                    int priority = Integer.parseInt(details[1]);
+                    return new AddCommand(new ToDos(details[0].trim(),priority));
                 }
             case "event":
                 if (words.length < 2) {
                     throw new DukeException(action);
                 } else {
                     String[] details = words[1].split(" /at ");
-                    return new AddCommand(new Events(details[0].trim(), details[1].trim()));
+                    String date = details[1];
+                    String[] description = details[0].split(" ");
+                    String task = description[0].trim();
+                    int priority = Integer.parseInt(description[1]);
+                    return new AddCommand(new Events(task, date, priority));
                 }
             case "deadline":
                 if (words.length < 2) {
                     throw new DukeException(action);
                 } else {
                     String[] details = words[1].split(" /by ");
-                    return new AddCommand(new Deadlines(details[0].trim(), details[1].trim()));
+                    String date = details[1];
+                    String[] description = details[0].split(" ");
+                    String task = description[0].trim();
+                    int priority = Integer.parseInt(description[1]);
+                    return new AddCommand(new Deadlines(task, date, priority));
                 }
             case "find":
                 if(words.length < 2){

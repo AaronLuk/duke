@@ -14,13 +14,15 @@ public class Deadlines extends Task {
     private SimpleDateFormat sdf;
     private Date date;
 
+
+
     /**
-     * Constructs deadline class
-     * @param name description of deadline
-     * @param time time of deadline
+     * Constructor of deadline task
+     * @param name of task
+     * @param priority of the task
      */
-    public Deadlines(String name, String time){
-        super(name);
+    public Deadlines(String name, String time, int priority){
+        super(name, priority);
         deadline = "[D]";
         this.time = time;
         sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm");
@@ -42,9 +44,9 @@ public class Deadlines extends Task {
      */
     public String toString(){
         if(done){
-            return deadline + "[√] " + name + " (by: " + time + ")";
+            return deadline + "[/][" + priority + "] " + name + " (by: " + time + ")";
         } else {
-            return deadline + "[X] " + name + " (by: " + time + ")";
+            return deadline + "[X][" + priority + "] " + name + " (by: " + time + ")";
         }
     }
 
@@ -55,9 +57,9 @@ public class Deadlines extends Task {
      */
     public String toFile() throws ParseException {
         if(done){
-            return "D | 1 | " + name + " | " +  convertDate();
+            return "D | 1 | " + priority + " | " + name + " | " +  convertDate();
         } else {
-            return "D | 0 | " + name + " | " +  convertDate();
+            return "D | 0 | " + priority + " | " + name + " | " +  convertDate();
         }
     }
 }

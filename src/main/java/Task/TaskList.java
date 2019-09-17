@@ -34,9 +34,9 @@ public class TaskList {
         String list = "";
         for(Task task : tasks){
             if(task.isDone()){
-                list += counter + "."+ task.toString() + "\n";
+                list += counter + ". "+ task.toString() + "\n";
             } else {
-                list += counter + "."+ task.toString() + "\n";
+                list += counter + ". "+ task.toString() + "\n";
             }
             counter++;
         }
@@ -70,5 +70,9 @@ public class TaskList {
     //returns entire list of tasks
     public static ArrayList<Task> getTasks(){
         return tasks;
+    }
+
+    public void setPriority(int priority){
+        tasks.get(tasks.size()-1).setPriority(priority);
     }
 }

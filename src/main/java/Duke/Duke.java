@@ -6,6 +6,7 @@ import java.text.ParseException;
 
 
 import Command.Command;
+import Command.AddCommand;
 import Task.TaskList;
 
 
@@ -37,6 +38,7 @@ public class Duke {
         try{
             exit = false;
             Command c = InputManager.parse(input);
+
             c.execute(tasks, storage, ui);
             storage.save(tasks.getTasks());
             exit = c.isExit();

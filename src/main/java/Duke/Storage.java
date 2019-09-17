@@ -42,19 +42,20 @@ public class Storage{
 
         while(sc.hasNextLine()){
             String[] text = sc.nextLine().split(" \\| ");
+            int priority = Integer.parseInt(text[2].trim());
             Task t;
             switch (text[0]){
                 case "T":
-                    t = new ToDos(text[2]);
+                    t = new ToDos(text[3], priority);
                     break;
                 case "D":
-                    t = new Deadlines(text[2], text[3]);
+                    t = new Deadlines(text[3], text[4], priority);
                     break;
                 case "E":
-                    t = new Events(text[2], text[3]);
+                    t = new Events(text[3], text[4], priority);
                     break;
                 default:
-                    t = new Task("");
+                    t = new Task("", priority);
                     break;
             }
             if (text[1].equals("1")) {

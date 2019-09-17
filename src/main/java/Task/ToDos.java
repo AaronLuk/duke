@@ -6,12 +6,14 @@ package Task;
 public class ToDos extends Task {
     private String todo;
 
+
     /**
-     * Constructs todo task
-     * @param name description of todo
+     * Constructor of todo task
+     * @param name of task
+     * @param priority of the task
      */
-    public ToDos(String name){
-        super(name);
+    public ToDos(String name, int priority){
+        super(name, priority);
         todo = "[T]";
     }
 
@@ -21,9 +23,9 @@ public class ToDos extends Task {
      */
     public String toString(){
         if(done){
-            return todo + "[√] " + name;
+            return todo + "[/][" + priority + "] " + name;
         } else {
-            return todo + "[X] " + name;
+            return todo + "[X][" + priority + "] " + name;
         }
     }
 
@@ -33,9 +35,9 @@ public class ToDos extends Task {
      */
     public String toFile(){
         if(done){
-            return "T | 1 | " + name;
+            return "T | 1 | " + priority + " | " + name;
         } else {
-            return "T | 0 | " + name;
+            return "T | 0 | " + priority + " | " + name;
         }
     }
 }

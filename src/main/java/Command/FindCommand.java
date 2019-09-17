@@ -19,7 +19,7 @@ public class FindCommand extends Command {
      * @param word to find in list of tasks
      */
     public FindCommand(String word){
-        wordToFind = word;
+        wordToFind = word.trim();
     }
 
     /**
