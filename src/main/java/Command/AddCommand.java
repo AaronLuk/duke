@@ -36,9 +36,7 @@ public class AddCommand extends Command{
      */
     public void execute(TaskList tasks, Storage storage, UI ui)  {
         tasks.add(this.task);
-        System.out.println("\t Got it I've added this task:");
-        System.out.println("\t " + tasks.getLatest());
-        System.out.println("\t Now you have " + tasks.getLength() + " in the list");
+
         taskMessage = ui.line() + "\n";
         taskMessage +=  "Got it I've added this task:\n";
         taskMessage += "   " + tasks.getLatest() + "\n";
