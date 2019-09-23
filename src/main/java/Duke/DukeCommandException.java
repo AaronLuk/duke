@@ -13,11 +13,13 @@ public class DukeCommandException extends Exception{
     public DukeCommandException(String action){
         ui = new UI();
         errorMessage = ui.line() + "\n";
-        errorMessage = "OOPS!!! "+ action + " REQUIRES THE INDEX OF THE TASK\n";
+        errorMessage += "OOPS!!! "+ action + " requires the index of the task\n";
         if(action.equals("delete")){
             errorMessage += "Format of delete is:\n \tdelete <index of task>\n";
         } else if(action.equals("done")){
             errorMessage += "Format of done is:\n \tdone <index of task>\n";
+        } else if(action.equals("sort")){
+          errorMessage += "Format of sort is:\n \tsort <priority of task>\n";
         } else{
             errorMessage += "Format of find is:\n \tfind <word(s) to find>\n";
         }

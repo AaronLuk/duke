@@ -61,4 +61,11 @@ public class Task {
         return "";
     }
 
+    /**
+     * Returns the priority of the task
+     */
+    public int getPriority(){
+        return this.priority;
+    }
+
 }

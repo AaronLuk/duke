@@ -104,6 +104,13 @@ public class InputManager {
                 } else {
                     return new FindCommand(words[1]);
                 }
+            case "sort":
+                if(words.length < 2) {
+                    throw new DukeCommandException(action);
+                } else {
+                    int priority = Integer.parseInt(words[1].trim());
+                    return new SortCommand(priority);
+                }
             default:
                 return new ErrorCommand();
         }
