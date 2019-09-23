@@ -48,46 +48,55 @@ public class InputManager {
                 if (words.length < 2) {
                     throw new DukeException(action);
                 } else {
-                    String[] details = words[1].split(" ");
-                    if(details.length < 2){
+                    int lastSpace = words[1].lastIndexOf(" ");
+                    if(lastSpace == -1){
                         throw new DukeException(action);
                     }
-                    int priority = Integer.parseInt(details[1]);
-                    return new AddCommand(new ToDos(details[0].trim(),priority));
+                    String description = words[1].substring(0,lastSpace);
+                    String p = words[1].substring(lastSpace).trim();
+                    if(description.isEmpty()|| p.isEmpty()){
+                        throw new DukeException(action);
+                    }
+                    int priority = Integer.parseInt(p);
+                    return new AddCommand(new ToDos(description,priority));
                 }
             case "event":
                 if (words.length < 2) {
                     throw new DukeException(action);
                 } else {
+                    assert(words[1].contains("/at")): "Missing input for event";
                     String[] details = words[1].split(" /at ");
-                    if(details.length < 2){
+                    int lastSpace = details[0].lastIndexOf(" ");
+                    if(lastSpace == -1){
                         throw new DukeException(action);
                     }
+                    String description = details[0].substring(0, lastSpace);
+                    String p = details[0].substring(lastSpace).trim();
                     String date = details[1];
-                    String[] description = details[0].split(" ");
-                    if(description.length < 2){
+                    if(description.isEmpty()|| p.isEmpty()){
                         throw new DukeException(action);
                     }
-                    String task = description[0].trim();
-                    int priority = Integer.parseInt(description[1]);
-                    return new AddCommand(new Events(task, date, priority));
+                    int priority = Integer.parseInt(p);
+                    return new AddCommand(new Events(description, date, priority));
                 }
             case "deadline":
                 if (words.length < 2) {
                     throw new DukeException(action);
                 } else {
+                    assert(words[1].contains("/by")): "Missing input for deadline";
                     String[] details = words[1].split(" /by ");
-                    if(details.length < 2){
+                    int lastSpace = details[0].lastIndexOf(" ");
+                    if(lastSpace == -1){
                         throw new DukeException(action);
                     }
+                    String description = details[0].substring(0, lastSpace);
+                    String p = details[0].substring(lastSpace).trim();
                     String date = details[1];
-                    String[] description = details[0].split(" ");
-                    if(description.length < 2){
+                    if(description.isEmpty()|| p.isEmpty()){
                         throw new DukeException(action);
                     }
-                    String task = description[0].trim();
-                    int priority = Integer.parseInt(description[1]);
-                    return new AddCommand(new Deadlines(task, date, priority));
+                    int priority = Integer.parseInt(p);
+                    return new AddCommand(new Deadlines(description, date, priority));
                 }
             case "find":
                 if(words.length < 2){

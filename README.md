@@ -1,39 +1,158 @@
-# Setting up
+# Duke User Guide
 
-**Prerequisites**
+## 1. Introduction
 
-* JDK 11
-* Recommended: IntelliJ IDE
-* Fork this repo to your GitHub account and clone the fork to your computer
+Duke is a task manager that allows users to manage any tasks they have to do.
 
-**Importing the project into IntelliJ**
 
-1. Open IntelliJ (if you are not in the welcome screen, click `File` > `Close Project` to close the existing project dialog first).
-1. Set up the correct JDK version.
-   * Click `Configure` > `Structure for new Projects` (in older versions of Intellij:`Configure` > `Project Defaults` > `Project Structure`).
-   * If JDK 11 is listed in the drop down, select it. If it is not, click `New...` and select the directory where you installed JDK 11.
-   * Click `OK`.
-1. Click `Import Project`.
-1. Locate the project directory and click `OK`.
-1. Select `Create project from existing sources` and click `Next`.
-1. Rename the project if you want. Click `Next`.
-1. Ensure that your src folder is checked. Keep clicking `Next`.
-1. Click `Finish`.
 
-# Tutorials 
+## 2. Usage
 
-Duke.Duke Increment | Tutorial
----------------|---------------
-`A-Gradle` | [Gradle Tutorial](tutorials/gradleTutorial.md)
-`A-TextUiTesting` | [Text Duke.Duke.UI Testing Tutorial](tutorials/textUiTestingTutorial.md)
-`Level-10` | JavaFX tutorials:<br>→ [Part 1: Introduction to JavaFX][fx1]<br>→ [Part 2: Creating a GUI for Duke.Duke][fx2]<br>→ [Part 3: Interacting with the user][fx3]<br>→ [Part 4: Introduction to FXML][fx4]
+### 2.1 List Command
+### 2.1.1 `list` - Prints list of all the tasks in from the list
 
-[fx1]: <tutorials/javaFxTutorialPart1.md>
-[fx2]: <tutorials/javaFxTutorialPart2.md>
-[fx3]: <tutorials/javaFxTutorialPart3.md>
-[fx4]: <tutorials/javaFxTutorialPart4.md>
+Lists everything in the list
 
-# Feedback, Bug Reports
+*Example input:*
 
-* If you have feedback or bug reports, please post in [se-edu/duke issue tracker](https://github.com/se-edu/duke/issues).
-* We welcome pull requests too.
+```
+list
+```
+*Example output:*
+```
+1. [D][X][1] submission (by: 31-12-2019 23:59)
+2. [E][/][3] raid (at: 20-09-2019 18:00)
+3. [T][X][3] read book
+```
+
+### 2.2 Done Command
+### 2.2.1 `done`- Sets a task as done
+Marks a task as done
+
+*Example input:*
+
+```
+done 3
+```
+*Example output:*
+```
+Noted, I've marked this task as done:
+  [D][/][2] homework (/by 31-12-2019 23:59)
+```
+
+
+### 2.3 Delete Command
+### 2.3.1 `delete` - Deletes a task from the list
+Removes a task from the list
+
+*Example input:*
+
+```
+delete 2
+```
+*Example output:*
+```
+Noted, I've removed this task:
+  [T][/][2] sleep
+```
+
+
+
+### 2.4 Find Command
+### 2.4.1 `find`- Searches the list for tasks with keyword
+Prints a list of tasks with matching keyword
+
+*Example input:*
+
+```
+find book
+```
+*Example output:*
+```
+1. [T][X][3] read book
+2. [D][X][1] return book (by: 25-12-2019 23:00)
+```
+
+
+
+### 2.5 Add Commands
+Add different types of tasks to the list.  All newly added tasks will be marked as undone by default
+
+### 2.5.1 `todo`- Add todo task to the list
+Adds a todo task to the list.
+
+*Example input:*
+*format: *
+```
+todo sleep 2
+```
+*Example output:*
+```
+Got it I've added this task:
+  [T][X][2] sleep
+Now you have 3 tasks in the list
+```
+
+
+
+### 2.5.2 `event`- Add event task to the list
+Adds an event task to the list
+
+*Example input:*
+
+```
+event workshop 1 /at 12-06-2019 14:00
+```
+*Example output:*
+```
+Got it I've added this task:
+  [E][X][1] workshop (at: 12-06-2019 14:00)
+Now you have 4 tasks in the list
+```
+
+
+
+
+
+### 2.5.3 `deadline`- Add deadline task to the list
+Adds a deadline task to the list
+*Example input:*
+
+```
+deadline assignment 1 /by 31-12-2019 23:59
+```
+*Example output:*
+```
+Got it I've added this task:
+  [D][X][1] assignment (by: 31-12-2019 23:59)
+Now you have 5 tasks in the list
+```
+
+
+
+
+### 2.6 Bye Command
+### 2.6.1 `bye` - terminates duke and saves the changes made
+Exits duke and saves all changes made
+
+*Example input:*
+```
+bye
+```
+*Example output:*
+```
+
+```
+
+### 3. Command Summary
+
+| Command  | Usage  |  Example |
+|---|---|---|
+| ListCommand  | list| list  |
+| DoneCommand  | done <$index>  |  done 3 |
+| DeleteCommand  | delete <$index>  |  delete 2 |
+| FindCommand  | find <$word(s) to find>  |  find book |
+| AddCommand  |  todo <$description> <$priority> |  todo read book 3 |
+| AddCommand  | event <$description> <$priority> /at <$date> <$time> | event raid Area 51 1 /at 20-09-2019 18:00  |
+| AddCommand  |  deadline <$description> <$priority> /by <$date> <$time> | deadline final submission 1 /by 31-12-2019 23:59  |
+| ByeCommand | bye  |   |

@@ -4,7 +4,9 @@ import Task.TaskList;
 import Duke.Storage;
 import Duke.UI;
 
-
+/**
+ * Shows the all possible commands if user inputs command that does not exist
+ */
 public class ErrorCommand extends Command{
 
     public ErrorCommand(){

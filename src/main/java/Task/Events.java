@@ -44,9 +44,9 @@ public class Events extends Task {
      */
     public String toString(){
         if(done){
-            return event + "[/][" + priority + "] " + " (at: " + time + ")";
+            return event + "[/][" + priority + "] " + name + " (at: " + time + ")";
         } else {
-            return event + "[X][" + priority + "] " + " (at: " + time + ")";
+            return event + "[X][" + priority + "] " + name + " (at: " + time + ")";
         }
     }
 
