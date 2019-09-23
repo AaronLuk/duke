@@ -19,6 +19,7 @@ public class ErrorCommand extends Command{
         taskMessage += "-list to list tasks\n";
         taskMessage += "-done <number> to find task\n";
         taskMessage += "-delete <number> to delete task\n";
+        taskMessage += "-sort <number> to list all tasks with specified priority";
         taskMessage += "-find <word> to find task with specified word\n";
         taskMessage += "-todo <description> <priority> to add todo task reminder\n";
         taskMessage += "-deadline <description> <priority> /by<date/time> to add deadline reminder\n";

@@ -13,13 +13,17 @@ public class UI {
      * Constructor for the UI class
      */
     public UI(){
-        line = "===============================";
+        line = "==================================================";
         greeting = "\t Hello I'm HackerMan\n\tWhat can I do for you?";
-        logo = " ____        _        \n"
-                + "|  _ \\ _   _| | _____ \n"
-                + "| | | | | | | |/ / _ \\\n"
-                + "| |_| | |_| |   <  __/\n"
-                + "|____/ \\__,_|_|\\_\\___|\n";
+        logo ="\n" +
+                "  _    _            _                                     \n" +
+                " | |  | |          | |                                    \n" +
+                " | |__| | __ _  ___| | _____ _ __   _ __ ___   __ _ _ __  \n" +
+                " |  __  |/ _` |/ __| |/ / _ | '__| | '_ ` _ \\ / _` | '_ \\ \n" +
+                " | |  | | (_| | (__|   |  __| |    | | | | | | (_| | | | |\n" +
+                " |_|  |_|\\__,_|\\___|_|\\_\\___|_|    |_| |_| |_|\\__,_|_| |_|\n" +
+                "                                                          \n" +
+                "                                                          \n";
     }
 
     /**
@@ -27,7 +31,7 @@ public class UI {
      * @return the Greeting
      */
     public String greet(){
-        return line + "\n" + greeting + "\n" + line;
+        return line + "\n" + logo + greeting + "\n" + line;
 
     }
 
