@@ -1,3 +1,4 @@
+
 # Duke User Guide
 
 ## 1. Introduction
@@ -73,12 +74,26 @@ find book
 2. [D][X][1] return book (by: 25-12-2019 23:00)
 ```
 
+### 2.5 SortCommand 
+### 2.5.1 `sort` - Prints the list of tasks with specified priority
+Prints tasks with specified priority
+
+*Example input:*
+```
+sort 2
+```
+*Example output:`
+```
+1. [T][X][2] read book
+2. [D][X][2] return book (by: 25-12-2019 23:00)
+3. [E][/][2] meeting with group (at: 12-20-2019 18:00)
+```
 
 
-### 2.5 Add Commands
+### 2.6 Add Commands
 Add different types of tasks to the list.  All newly added tasks will be marked as undone by default
 
-### 2.5.1 `todo`- Add todo task to the list
+### 2.6.1 `todo`- Add todo task to the list
 Adds a todo task to the list.
 
 *Example input:*
@@ -95,7 +110,7 @@ Now you have 3 tasks in the list
 
 
 
-### 2.5.2 `event`- Add event task to the list
+### 2.6.2 `event`- Add event task to the list
 Adds an event task to the list
 
 *Example input:*
@@ -114,7 +129,7 @@ Now you have 4 tasks in the list
 
 
 
-### 2.5.3 `deadline`- Add deadline task to the list
+### 2.6.3 `deadline` - Add deadline task to the list
 Adds a deadline task to the list
 *Example input:*
 
@@ -131,8 +146,8 @@ Now you have 5 tasks in the list
 
 
 
-### 2.6 Bye Command
-### 2.6.1 `bye` - terminates duke and saves the changes made
+### 2.7 Bye Command
+### 2.7.1 `bye` - terminates duke and saves the changes made
 Exits duke and saves all changes made
 
 *Example input:*
@@ -143,6 +158,7 @@ bye
 ```
 
 ```
+
 
 ### 3. Command Summary
 
