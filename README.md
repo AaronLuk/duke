@@ -5,7 +5,7 @@
 
 Duke is a task manager that allows users to manage any tasks they have to do.
 
-
+![](https://github.com/AaronLuk/duke/blob/master/src/main/resources/images/userGuide.png)
 
 ## 2. Usage
 
@@ -168,6 +168,7 @@ bye
 | DoneCommand  | done <$index>  |  done 3 |
 | DeleteCommand  | delete <$index>  |  delete 2 |
 | FindCommand  | find <$word(s) to find>  |  find book |
+| SortCommand | sort <$index> | sort 2 |
 | AddCommand  |  todo <$description> <$priority> |  todo read book 3 |
 | AddCommand  | event <$description> <$priority> /at <$date> <$time> | event raid Area 51 1 /at 20-09-2019 18:00  |
 | AddCommand  |  deadline <$description> <$priority> /by <$date> <$time> | deadline final submission 1 /by 31-12-2019 23:59  |
