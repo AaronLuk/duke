@@ -21,7 +21,7 @@ public class InputManager {
      * @return Command object
      * @throws DukeException Invalid actions/ Missing values
      */
-    public static Command parse(String input) throws DukeException{
+    public static Command parse(String input) throws DukeException, DukeCommandException{
         String[] words = input.split(" ",2);
         String action = words[0];
 
@@ -32,14 +32,14 @@ public class InputManager {
                 return new ByeCommand();
             case "done":
                 if (words.length < 2) {
-                    System.out.println("OOPS DONE KNOW WHAT THAT MEANS");
+                   throw new DukeCommandException(action);
                 } else {
                     int index = Integer.parseInt(words[1].trim());
                     return new DoneCommand(index);
                 }
             case "delete":
                 if (words.length < 2) {
-                    System.out.println("OOPS DONE KNOW WHAT THAT MEANS");
+                   throw new DukeCommandException(action);
                 } else {
                     int index = Integer.parseInt(words[1].trim());
                     return new DeleteCommand(index);
@@ -49,6 +49,9 @@ public class InputManager {
                     throw new DukeException(action);
                 } else {
                     String[] details = words[1].split(" ");
+                    if(details.length < 2){
+                        throw new DukeException(action);
+                    }
                     int priority = Integer.parseInt(details[1]);
                     return new AddCommand(new ToDos(details[0].trim(),priority));
                 }
@@ -57,8 +60,14 @@ public class InputManager {
                     throw new DukeException(action);
                 } else {
                     String[] details = words[1].split(" /at ");
+                    if(details.length < 2){
+                        throw new DukeException(action);
+                    }
                     String date = details[1];
                     String[] description = details[0].split(" ");
+                    if(description.length < 2){
+                        throw new DukeException(action);
+                    }
                     String task = description[0].trim();
                     int priority = Integer.parseInt(description[1]);
                     return new AddCommand(new Events(task, date, priority));
@@ -68,15 +77,21 @@ public class InputManager {
                     throw new DukeException(action);
                 } else {
                     String[] details = words[1].split(" /by ");
+                    if(details.length < 2){
+                        throw new DukeException(action);
+                    }
                     String date = details[1];
                     String[] description = details[0].split(" ");
+                    if(description.length < 2){
+                        throw new DukeException(action);
+                    }
                     String task = description[0].trim();
                     int priority = Integer.parseInt(description[1]);
                     return new AddCommand(new Deadlines(task, date, priority));
                 }
             case "find":
                 if(words.length < 2){
-                    System.out.println("OOPS DESCRIPTION OF FIND CANT BE EMPTY");
+                    throw new DukeCommandException(action);
                 } else {
                     return new FindCommand(words[1]);
                 }

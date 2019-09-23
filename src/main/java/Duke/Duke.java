@@ -23,10 +23,10 @@ public class Duke {
 
     /**
      * Starts duke class from the UI class
-     * @param filePath the directory of the source file with tasks
+     *
      */
-    public Duke(String filePath){
-        startup(filePath);
+    public Duke(){
+        startup();
     }
 
     /**
@@ -48,7 +48,7 @@ public class Duke {
             } else {
                 return c.toString();
             }
-        } catch (IOException | ParseException | DukeException e){
+        } catch (IOException | ParseException | DukeException | DukeCommandException e){
             return e.getMessage();
         }
 
@@ -58,13 +58,13 @@ public class Duke {
      * Initialises the duke class and loads tasks from file
      * @param filePath directory of the file
      */
-    public void startup(String filePath){
-        storage = new Storage(filePath);
+    public void startup(){
+        storage = new Storage();
         ui = new UI();
         try{
             tasks = new TaskList(storage.load());
         } catch (IOException e){
-            System.out.println(e);
+            tasks = new TaskList();
         }
     }
 

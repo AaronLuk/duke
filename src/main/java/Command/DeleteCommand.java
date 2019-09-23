@@ -24,15 +24,19 @@ public class DeleteCommand extends Command {
      */
     @Override
     public void execute(TaskList tasks, Storage storage, UI ui){
-        System.out.println("\t Noted, I've removed this task:");
-        System.out.println("\t   " + tasks.getTask(index));
-
-        System.out.println("\t Now you have " + tasks.getLength() + " in the list");
         taskMessage = ui.line() + "\n";
-        taskMessage +=  "Noted, I've removed this task:\n";
-        taskMessage += "  " + tasks.getTask(index) + "\n";
+        if(tasks.getLength()< index){
+
+            taskMessage +=  "No such task to remove\n";
+            taskMessage += ui.line();
+        } else {
+
+            taskMessage +=  "Noted, I've removed this task:\n";
+            taskMessage += "  " + tasks.getTask(index) + "\n";
+
+            tasks.deleteTask(index);
+        }
         taskMessage += ui.line();
-        tasks.deleteTask(index);
 
     }
 }

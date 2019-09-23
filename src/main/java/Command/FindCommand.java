@@ -38,7 +38,7 @@ public class FindCommand extends Command {
 
         }
         if(searchResults.isEmpty()){
-            System.out.println("\t Sorry no matches");
+            taskMessage += "\t Sorry no matches\n";
         } else {
             int counter = 1;
             for(Task task : searchResults){
@@ -46,8 +46,8 @@ public class FindCommand extends Command {
                  taskMessage +=  counter + ". " + task.toString() + "\n";
                  counter++;
             }
-            taskMessage += ui.line();
-        }
 
+        }
+        taskMessage += ui.line();
     }
 }

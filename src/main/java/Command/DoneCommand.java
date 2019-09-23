@@ -24,12 +24,16 @@ public class DoneCommand extends Command {
      */
     @Override
     public void execute(TaskList tasks, Storage storage, UI ui) {
-        tasks.setDone(index);
-        System.out.println("\t Nice! I've marked this task as done:");
-        System.out.println("\t   " + tasks.getTask(index));
         taskMessage = ui.line() + "\n";
-        taskMessage +=  "Nice! I've marked this task as done:\n";
-        taskMessage += "   " + tasks.getTask(index)+"\n";
-        taskMessage += ui.line();
+        if(tasks.getLength() < index){
+            taskMessage +=  "No such task to mark as done\n";
+
+        } else {
+            tasks.setDone(index);
+            taskMessage +=  "Nice! I've marked this task as done:\n";
+            taskMessage += "   " + tasks.getTask(index)+"\n";
+
+        }
+        taskMessage += ui.line() + "\n";
     }
 }

@@ -16,6 +16,10 @@ public class TaskList {
         tasks = list;
     }
 
+    public TaskList() {
+        tasks = new ArrayList<Task>();
+    }
+
     /**
      * Adds task to list
      * @param t task to be added

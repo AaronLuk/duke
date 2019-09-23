@@ -15,9 +15,12 @@ public class ListCommand extends Command {
      */
     @Override
     public void execute(TaskList tasks, Storage storage, UI ui) {
-        System.out.println(tasks.toString());
-        taskMessage = ui.line() + "\n";
-        taskMessage += tasks.toString();
-        taskMessage += ui.line();
+        if(tasks.toString().equals("")){
+            taskMessage = "You have 0 tasks";
+        } else {
+            taskMessage = ui.line() + "\n";
+            taskMessage += tasks.toString();
+            taskMessage += ui.line();
+        }
     }
 }

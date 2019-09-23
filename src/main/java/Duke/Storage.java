@@ -18,14 +18,15 @@ import Task.Events;
  * Reads and writes information from and to file
  */
 public class Storage{
-    private String filePath;
 
+    public final static String PATH = "data.txt";
     /**
      * Contructor for storage object
-     * @param filePath directory of the file
+     *
      */
-    public Storage(String filePath){
-        this.filePath = filePath;
+    public Storage(){
+
+
     }
 
     /**
@@ -34,7 +35,7 @@ public class Storage{
      * @throws FileNotFoundException Inform file does not exist
      */
     public ArrayList<Task> load() throws  FileNotFoundException {
-        File file = new File(filePath);
+        File file = new File(PATH);
         Scanner sc = new Scanner(file);
         SimpleDateFormat timeFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
@@ -73,7 +74,7 @@ public class Storage{
      * @throws ParseException Error writing to file
      */
     public void save(ArrayList<Task> tasks) throws IOException, ParseException {
-        FileWriter writer = new FileWriter("src/main/java/data.txt");
+        FileWriter writer = new FileWriter(PATH);
         for(Task t: tasks){
             writer.write(t.toFile() + System.lineSeparator());
         }
