@@ -5,7 +5,7 @@
 
 Duke is a task manager that allows users to manage any tasks they have to do.
 
-![](https://github.com/AaronLuk/duke/blob/master/src/main/resources/images/userGuide.png)
+![](docs/UI.png)
 
 ## 2. Usage
 
