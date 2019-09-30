@@ -159,7 +159,26 @@ bye
 
 ```
 
+### 2.8 Help Command
+### 2.7.1 `help` shows list of commands
+Prints out list of commands for users
 
+*Example input:*
+```$xslt
+help
+```
+*Example output*
+```$xslt
+Here are the commands:
+$list to list tasks
+$done <number> to find task
+$delete <number> to delete task
+$sort <number> to list all tasks with specified priority
+$find <word> to find task with specified word
+$todo <description> <priority> to add todo task reminder
+$deadline <description> <priority> /by <DD-MM-YYYY HH:MM> to add deadline reminder
+$event <description> <priority> /at <DD-MM-YYYY HH:MM> to add event reminder
+```
 ### 3. Command Summary
 
 | Command  | Usage  |  Example |
