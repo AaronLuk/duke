@@ -22,8 +22,8 @@ public class ErrorCommand extends Command{
         taskMessage += "-sort <number> to list all tasks with specified priority";
         taskMessage += "-find <word> to find task with specified word\n";
         taskMessage += "-todo <description> <priority> to add todo task reminder\n";
-        taskMessage += "-deadline <description> <priority> /by<date/time> to add deadline reminder\n";
-        taskMessage += "-event <description> <priority> /at<date/time> to add event reminder\n";
+        taskMessage += "-deadline <description> <priority> /by <DD-MM-YYYY HH:MM> to add deadline reminder\n";
+        taskMessage += "-event <description> <priority> /at <DD-MM-YYYY HH:MM> to add event reminder\n";
         taskMessage += ui.line();
 
     }

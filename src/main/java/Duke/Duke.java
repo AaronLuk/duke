@@ -6,7 +6,7 @@ import java.text.ParseException;
 
 
 import Command.Command;
-import Command.AddCommand;
+
 import Task.TaskList;
 
 
@@ -48,7 +48,7 @@ public class Duke {
             } else {
                 return c.toString();
             }
-        } catch (IOException | ParseException | DukeException | DukeCommandException e){
+        } catch (IOException |ParseException| DukeException | DukeCommandException e){
             return e.getMessage();
         }
 
@@ -56,7 +56,7 @@ public class Duke {
 
     /**
      * Initialises the duke class and loads tasks from file
-     * @param filePath directory of the file
+     *
      */
     public void startup(){
         storage = new Storage();
