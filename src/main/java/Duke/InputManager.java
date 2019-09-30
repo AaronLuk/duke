@@ -111,6 +111,8 @@ public class InputManager {
                     int priority = Integer.parseInt(words[1].trim());
                     return new SortCommand(priority);
                 }
+            case "help":
+                return new HelpCommand();
             default:
                 return new ErrorCommand();
         }

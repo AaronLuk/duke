@@ -31,7 +31,7 @@ public class UI {
      * @return the Greeting
      */
     public String greet(){
-        return line + "\n" + logo + greeting + "\n" + line;
+        return line + "\n" + logo + greeting + "\n" + line + "\nType help to see full list of commands";
 
     }
 
