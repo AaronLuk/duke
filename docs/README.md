@@ -192,3 +192,4 @@ $event <description> <priority> /at <DD-MM-YYYY HH:MM> to add event reminder
 | AddCommand  | event <$description> <$priority> /at <$date> <$time> | event raid Area 51 1 /at 20-09-2019 18:00  |
 | AddCommand  |  deadline <$description> <$priority> /by <$date> <$time> | deadline final submission 1 /by 31-12-2019 23:59  |
 | ByeCommand | bye  |   |
+| HelpCommand | help |   |
